@@ -11,17 +11,17 @@ import {
   SheetContent,
   SheetTrigger,
 } from '@/components/ui/sheet'
+import { smoothScroll } from '@/utils/smoothScroll'
 
 
 const navItems = [
   { href: '/', label: 'Home' }, 
-  { href: '/programs', label: 'What we do' },
-  { href: '/gallery', label: 'Gallery' },
-  { href: '/about', label: 'About' },
-  { href: '/donate', label: 'Donate' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/find-us', label: 'Find Us' },
-  { href: '/contact', label: 'Contact Us' },
+  { href: '#services', label: 'Our Services', id: 'services' },
+  { href: '#about', label: 'About', id: 'about' },
+  { href: '#find-us', label: 'Find Us', id: 'find-us' },
+  { href: '#reviews', label: 'Reviews', id: 'reviews' },
+  { href: '#team', label: 'Our Team', id: 'team' },
+  { href: '#contact', label: 'Contact Us', id: 'contact' },
 ]
 
 export default function Header() {
@@ -36,7 +36,7 @@ export default function Header() {
           <div className=" tiny-logo w-[5.3rem] h-[4.3rem] sm:w-[6rem] sm:h-[5rem] lg:w-[8rem] lg:h-[6.4rem] relative">
             <Image
               src="/logo1.png?height=10&width=20"
-              alt="Gaba Hope For Kids Logo"
+              alt="Vamel Consultancy Logo"
               layout="fill"
               objectFit="cover"
             />
@@ -49,6 +49,7 @@ export default function Header() {
               <li key={item.href}>
                 <Link
                   href={item.href}
+                  onClick={(e) => item.id && smoothScroll(e, item.id)}
                   className={`hover:text-blue-800 transition-colors paragraph text-lg ${
                     pathname === item.href ? 'text-orange-500 font-semibold' : ''
                   }`}
@@ -79,7 +80,10 @@ export default function Header() {
                   className={`text-lg hover:text-blue-800 transition-colors paragraph ${
                     pathname === item.href ? 'text-orange-500 font-semibold' : ''
                   }`}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => {
+                    setIsOpen(false);
+                    item.id && smoothScroll(e, item.id);
+                  }}
                 >
                   {item.label}
                 </Link>

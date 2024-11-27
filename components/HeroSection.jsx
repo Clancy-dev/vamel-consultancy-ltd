@@ -15,11 +15,11 @@ const backgroundImages = [
 ]
 
 const welcomeTexts = [
-  { title: "Welcome to Gaba Hope For Kids", subtitle: "Where every child's potential is nurtured" },
-  { title: "Empowering Young Lives", subtitle: "Building a foundation for a brighter tomorrow" },
-  { title: "Join Our Mission", subtitle: "Together, we can make a difference" },
-  { title: "Changing Lives, One Child at a Time", subtitle: "Your support creates lasting impact" },
-  { title: "Hope Starts Here", subtitle: "Giving children the chance they deserve" },
+  { title: "Welcome to Vamel Consultancy Ltd", subtitle: "Your bridge to dream career opportunities" },
+  { title: "Unlock Your Career Potential", subtitle: "We connect talent with transformative job opportunities" },
+  { title: "Navigate Your Career Journey", subtitle: "Expert guidance to your ideal professional path" },
+  { title: "Empowering Job Seekers", subtitle: "Turn your career aspirations into reality" },
+  { title: "Your Dream Job Awaits", subtitle: "Let us help you take the next step in your career" },
 ]
 
 export default function HeroSection() {
@@ -69,8 +69,7 @@ export default function HeroSection() {
             <p className="text-xl md:text-2xl mb-8 ">{welcomeTexts[currentTextIndex].subtitle}</p>
           </div>
           <Button asChild size="lg" className=" border-b-[1px] border-l-[1px]  bg-orange-500 hover:bg-orange-600 text-white">
-            <Link href="/donate">Donate Now</Link>
-            {/* <ShimmerButton className="shadow-2xl"/> */}
+            <Link href="/jobs">Find Your Dream Job</Link>
           </Button>
         </div>
       </div>

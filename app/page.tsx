@@ -12,10 +12,13 @@ import Footer from '@/components/footer'
 import LazyLoad from '@/components/lazy-load'
 import Header from '@/components/Header'
 
+
+
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+     <Header/>
       <main>
         <LazyLoad>
           <HeroSection/>
