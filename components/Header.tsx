@@ -30,7 +30,7 @@ export default function Header() {
 
   return (
   
-    <header className="bg-white text-blue-600 shadow-md">
+    <header className="bg-white text-blue-800 shadow-md">
       <div className="container mx-auto px-4 py-2 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
           <div className=" tiny-logo w-[5.3rem] h-[4.3rem] sm:w-[6rem] sm:h-[5rem] lg:w-[8rem] lg:h-[6.4rem] relative">
@@ -38,10 +38,10 @@ export default function Header() {
               src="/logo1.png?height=10&width=20"
               alt="Vamel Consultancy Logo"
               layout="fill"
-              objectFit="cover"
+              objectFit="contain"
             />
           </div>
-          <span className=" sm:text-[1.2rem] md:text-2xl lg:text-2xl font-bold text-blue-500 font">Vamel Consultancy Ltd</span>
+          <span className=" sm:text-[1.2rem] md:text-2xl lg:text-2xl font-bold text-red-500 font">Vamel Consultancy Ltd</span>
         </Link>
         <nav className="hidden lg:block">
           <ul className="flex space-x-6">
@@ -51,7 +51,7 @@ export default function Header() {
                   href={item.href}
                   onClick={(e) => item.id && smoothScroll(e, item.id)}
                   className={`hover:text-blue-800 transition-colors paragraph text-lg ${
-                    pathname === item.href ? 'text-orange-500 font-semibold' : ''
+                    pathname === item.href ? 'text-red-500 font-semibold' : ''
                   }`}
                 >
                   {item.label}

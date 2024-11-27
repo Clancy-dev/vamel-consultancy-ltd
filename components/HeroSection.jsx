@@ -7,11 +7,11 @@ import { Button } from "@/components/ui/button"
 // import ShimmerButton from './ui/shimmer-button'
 
 const backgroundImages = [
-  '/hero1.png?height=600&width=1200&text=Image1',
-  '/hero2.png?height=600&width=1200&text=Image2',
-  '/hero3.png?height=600&width=1200&text=Image3',
-  '/hero4.png?height=600&width=1200&text=Image4',
-  '/hero5.png?height=600&width=1200&text=Image5',
+  '/hero1.jpeg?height=600&width=1200&text=Image1',
+  '/hero2.jpeg?height=600&width=1200&text=Image2',
+  '/hero3.jpeg?height=600&width=1200&text=Image3',
+  '/hero4.jpeg?height=600&width=1200&text=Image4',
+  '/hero5.jpeg?height=600&width=1200&text=Image5',
 ]
 
 const welcomeTexts = [
@@ -68,7 +68,7 @@ export default function HeroSection() {
             <h1 className="text-4xl md:text-6xl font-bold mb-4 p-4 ">{welcomeTexts[currentTextIndex].title}</h1>
             <p className="text-xl md:text-2xl mb-8 ">{welcomeTexts[currentTextIndex].subtitle}</p>
           </div>
-          <Button asChild size="lg" className=" border-b-[1px] border-l-[1px]  bg-orange-500 hover:bg-orange-600 text-white">
+          <Button asChild size="lg" className=" border-b-[1px] border-l-[1px]  bg-red-500 hover:bg-orange-600 text-white">
             <Link href="/jobs">Find Your Dream Job</Link>
           </Button>
         </div>

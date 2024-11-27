@@ -3,27 +3,27 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 const teamMembers = [
   {
-    name: 'Alice Johnson',
+    name: 'Ivan',
     role: 'CEO & Founder',
-    bio: 'With over 15 years of experience in HR and recruitment, Alice founded Vamel Consultancy to revolutionize job placement.',
-    avatar: '/avatars/alice-johnson.png',
+    bio: 'With over 4+ years of experience in HR and recruitment, Alice founded Vamel Consultancy to revolutionize job placement.',
+    avatar: '/head.jpg',
   },
   {
-    name: 'Bob Smith',
+    name: 'other person',
     role: 'Head of Recruitment',
-    bio: 'Bobs expertise in talent acquisition ensures that we match the right candidates with the right opportunities.',
+    bio: 'Has expertise in talent acquisition ensures that we match the right candidates with the right opportunities.',
     avatar: '/avatars/bob-smith.png',
   },
   {
-    name: 'Carol Davis',
+    name: 'other person',
     role: 'Career Counselor',
-    bio: 'Carol s passion for helping people grow in their careers makes her an invaluable asset to our team and clients.',
+    bio: 'Has passion for helping people grow in their careers makes her an invaluable asset to our team and clients.',
     avatar: '/avatars/carol-davis.png',
   },
   {
-    name: 'Daniel Lee',
+    name: 'other person',
     role: 'Technology Lead',
-    bio: 'Daniel leverages cutting-edge technology to streamline our job matching process and improve user experience.',
+    bio: 'He leverages cutting-edge technology to streamline our job matching process and improve user experience.',
     avatar: '/avatars/daniel-lee.png',
   },
 ]

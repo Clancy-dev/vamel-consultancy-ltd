@@ -3,20 +3,20 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 const reviews = [
   {
-    name: 'John Doe',
-    role: 'Software Developer',
+    name: 'Syliva Kansime',
+    role: 'Student Mubs',
     content: 'Vamel Consultancy helped me land my dream job at a top tech company. Their personalized approach and interview preparation were invaluable.',
     avatar: '/avatars/john-doe.png',
   },
   {
-    name: 'Jane Smith',
-    role: 'Marketing Manager',
+    name: 'kyambadde Derrick',
+    role: 'Finalist Kyambogo',
     content: 'I was impressed by the quality of job matches Vamel provided. They truly understood my career goals and found the perfect opportunity for me.',
     avatar: '/avatars/jane-smith.png',
   },
   {
-    name: 'David Johnson',
-    role: 'Finance Analyst',
+    name: 'Ochieng David',
+    role: 'BBA student Mubs',
     content: 'The career counseling I received from Vamel was eye-opening. It helped me pivot my career in a direction I hadnt considered before.',
     avatar: '/avatars/david-johnson.png',
   },
