@@ -45,8 +45,8 @@ const FindUs = () => {
               We're conveniently located in the heart of Kireka, making it easy for job seekers and employers to connect with us.
             </p>
             <h3 className="text-2xl font-semibold mb-4">Contact Information</h3>
-            <p className="text-lg mb-2">Phone: +256 123 456 789</p>
-            <p className="text-lg mb-2">Email: info@vamelconsultancy.com</p>
+            <p className="text-lg mb-2">Phone: +256 776998076</p>
+            <p className="text-lg mb-2">Email: vamelconsultancygroup@gmail.com</p>
             <p className="text-lg">
               Feel free to reach out to us with any questions or to schedule an appointment.
             </p>

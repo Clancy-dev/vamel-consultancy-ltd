@@ -22,8 +22,8 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Contact</h4>
             <p className="text-sm">Kireka Shopping Center</p>
             <p className="text-sm">Kireka, Uganda</p>
-            <p className="text-sm">Phone: +256 123 456 789</p>
-            <p className="text-sm">Email: info@vamelconsultancy.com</p>
+            <p className="text-sm">Phone: +256 776998076</p>
+            <p className="text-sm">Email: vamelconsultancygroup@gmail.com</p>
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
