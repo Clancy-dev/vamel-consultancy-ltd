@@ -1,4 +1,7 @@
-import { Card, CardContent, CardFooter } from '@/components/ui/card'
+'use client'
+
+import React, { useEffect, useRef, useState } from 'react'
+import { Card, CardContent } from '@/components/ui/card'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 const teamMembers = [
@@ -28,14 +31,52 @@ const teamMembers = [
   },
 ]
 
-const Team = () => {
+const SlidingTeamMembers = () => {
+  const [isPaused, setIsPaused] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
+
+    let animationFrameId: number
+    let startTime: number
+
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp
+      const progress = timestamp - startTime
+
+      if (!isPaused) {
+        const moveAmount = (progress * 0.02) % (container.scrollWidth / 2)
+        container.scrollLeft = container.scrollWidth / 2 - moveAmount
+      }
+
+      animationFrameId = requestAnimationFrame(animate)
+    }
+
+    animationFrameId = requestAnimationFrame(animate)
+
+    return () => cancelAnimationFrame(animationFrameId)
+  }, [isPaused])
+
+  const handleTouch = () => {
+    setIsPaused(true)
+    setTimeout(() => setIsPaused(false), 5000)
+  }
+
   return (
-    <section id="team" className="py-24 px-6 bg-gray-100">
+    <section id="sliding-team" className="py-24 px-6 bg-gray-100 overflow-hidden">
       <div className="container mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12">Meet Our Team</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {teamMembers.map((member, index) => (
-            <Card key={index} className="flex flex-col justify-between">
+        <div 
+          ref={containerRef}
+          className="flex overflow-x-hidden touch-pan-y"
+          onTouchStart={handleTouch}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {[...teamMembers, ...teamMembers, ...teamMembers].map((member, index) => (
+            <Card key={index} className="flex-shrink-0 w-[300px] mx-4">
               <CardContent className="pt-6 text-center">
                 <Avatar className="w-24 h-24 mx-auto mb-4">
                   <AvatarImage src={member.avatar} alt={member.name} />
@@ -53,5 +94,5 @@ const Team = () => {
   )
 }
 
-export default Team
+export default SlidingTeamMembers
 
