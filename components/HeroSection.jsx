@@ -68,9 +68,16 @@ export default function HeroSection() {
             <h1 className="text-4xl md:text-6xl font-bold mb-4 p-4 ">{welcomeTexts[currentTextIndex].title}</h1>
             <p className="text-xl md:text-2xl mb-8 ">{welcomeTexts[currentTextIndex].subtitle}</p>
           </div>
-          <Button asChild size="lg" className=" border-b-[1px] border-l-[1px]  bg-red-500 hover:bg-orange-600 text-white">
-            <Link href="/jobs">Find Your Dream Job</Link>
-          </Button>
+      <Button
+      asChild
+      size="lg"
+      className="relative overflow-hidden bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-white shadow-lg transition-all duration-300 ease-in-out hover:from-red-600 hover:via-red-700 hover:to-red-800 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 active:from-red-700 active:via-red-800 active:to-red-900"
+    >
+      <Link href="/jobs" className="relative z-10 px-5 py-2">
+        <span className="relative z-10">Find Your Dream Job</span>
+        <span className="absolute inset-0 z-0 bg-gradient-to-r from-red-600 via-red-700 to-red-800 opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100"></span>
+      </Link>
+    </Button>
         </div>
       </div>
     </section>

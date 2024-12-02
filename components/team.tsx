@@ -6,10 +6,10 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 const teamMembers = [
   {
-    name: 'Ivan',
+    name: 'Muhwezi Ivan',
     role: 'CEO & Founder',
     bio: 'With over 4+ years of experience in HR and recruitment, Ivan founded Vamel Consultancy to revolutionize job placement.',
-    avatar: '/person1.jpg',
+    avatar: '/ivan.jpg',
   },
   {
     name: 'Ninyebaza Penina',
@@ -22,6 +22,18 @@ const teamMembers = [
     role: 'Field Officer',
     bio: ' She is a skilled professional at Vamel Consultancy Ltd, dedicated to linking job seekers with employers. She excels in field operations, fostering networks, and ensuring seamless candidate-employer coordination.',
     avatar: '/person3.jpg',
+  },
+  {
+    name: 'Ruth Kyoshabire',
+    role: 'Front Desk Officer',
+    bio: 'She is the welcoming face of Vamel Consultancy Ltd., ensuring a professional and friendly experience for all visitors. She excels in client support, managing inquiries, and maintaining smooth office operations.',
+    avatar: '/person4.jpg',
+  },
+  {
+    name: 'Trinity Anek Daisy',
+    role: 'Legal and Governance',
+    bio: 'She ensures that Vamel Consultancy Ltd complies with all local, national, and international laws, particularly those related to employment and recruitment.',
+    avatar: '/daisy.jpg',
   },
   {
     name: 'Ruth Kyoshabire',

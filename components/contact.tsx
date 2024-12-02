@@ -1,87 +1,128 @@
-'use client'
+"use client"
 
-import { useState } from 'react'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { useToast } from '@/hooks/use-toast'
- 
+import { useState } from "react"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import * as z from "zod"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import toast from "react-hot-toast"
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+const formSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  subject: z.string().min(5, "Subject must be at least 5 characters"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+})
+
+export default function ContactForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
   })
-  const { toast } = useToast()
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prevState => ({ ...prevState, [name]: value }))
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData)
-    toast({
-      title: 'Message Sent',
-      description: 'Thank you for contacting us. We will get back to you soon!',
-    })
-    setFormData({ name: '', email: '', message: '' })
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSubmitting(true)
+    // Simulate form submission
+    setTimeout(() => {
+      setIsSubmitting(false)
+     toast.success("")
+      form.reset()
+    }, 2000)
   }
 
   return (
-    <section id="contact" className="py-24 px-6">
-      <div className="container mx-auto max-w-2xl">
-        <h2 className="text-4xl font-bold text-center mb-12">Contact Us</h2>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-              Name
-            </label>
-            <Input
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-              Email
-            </label>
-            <Input
-              id="email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-              Message
-            </label>
-            <Textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              rows={5}
-            />
-          </div>
-          <Button type="submit" className="w-full">
-            Send Message
-          </Button>
-        </form>
+    <div className="w-full max-w-md mx-auto p-6 space-y-8">
+      <div className="text-center">
+        
+        <p className="mt-2 text-gray-500">We'd love to hear from you</p>
       </div>
-    </section>
+      <div className="bg-gradient-to-br from-blue-800 to-blue-900 rounded-lg shadow-xl overflow-hidden transform transition-all hover:scale-105 duration-300">
+        <div className="bg-gradient-to-r from-blue-900 to-blue-950 p-1">
+          <div className="rounded-t-lg">
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 p-6">
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-blue-100">Name</FormLabel>
+                      <FormControl>
+                        <Input placeholder="your name" {...field} className="bg-white text-gray-800" />
+                      </FormControl>
+                      <FormMessage className="text-red-300" />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-blue-100">Email</FormLabel>
+                      <FormControl>
+                        <Input placeholder="john@example.com" {...field} className="bg-white text-gray-800" />
+                      </FormControl>
+                      <FormMessage className="text-red-300" />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="subject"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-blue-100">Subject</FormLabel>
+                      <FormControl>
+                        <Input placeholder="How can we help?" {...field} className="bg-white text-gray-800" />
+                      </FormControl>
+                      <FormMessage className="text-red-300" />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-blue-100">Message</FormLabel>
+                      <FormControl>
+                        <Textarea placeholder="Your message here..." {...field} className="bg-white text-gray-800" />
+                      </FormControl>
+                      <FormMessage className="text-red-300" />
+                    </FormItem>
+                  )}
+                />
+                <Button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white font-semibold py-2 px-4 rounded-md transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </Button>
+              </form>
+            </Form>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
-
-export default Contact
 
