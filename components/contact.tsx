@@ -50,8 +50,10 @@ export default function ContactForm() {
   return (
     <div className="w-full max-w-md mx-auto p-6 space-y-8">
       <div className="text-center">
-        
-        <p className="mt-2 text-gray-500">We'd love to hear from you</p>
+        <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+          Contact Us
+        </h2>
+        <p className="mt-2 text-gray-400">We'd love to hear from you</p>
       </div>
       <div className="bg-gradient-to-br from-blue-800 to-blue-900 rounded-lg shadow-xl overflow-hidden transform transition-all hover:scale-105 duration-300">
         <div className="bg-gradient-to-r from-blue-900 to-blue-950 p-1">
